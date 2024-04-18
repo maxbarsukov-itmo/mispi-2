@@ -5,3 +5,5 @@ rm -rf .git
 cp -r .rotter .git
 
 rm -rf .rotter
+
+mv -f .rotterignore .gitignore

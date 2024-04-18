@@ -2,7 +2,10 @@
 
 # Очистка ненужных данных и backup .git
 cp -r .git .rotter
+cp .gitignore .rotterignore
+
 rm -rf .git
+rm -f .gitignore
 echo "- Создан бэкап .git"
 
 find src -type f ! -name '.keep' -delete
@@ -26,6 +29,22 @@ echo "- Пользователь red создан"
 
 git checkout -b branch1
 
+# Новый .gitignore {
+echo ".resources" > .gitignore
+echo ".rotter" >> .gitignore
+echo "commits" >> .gitignore
+echo "docs" >> .gitignore
+echo "src/.keep" >> .gitignore
+echo ".editorconfig" >> .gitignore
+echo ".rotterignore" >> .gitignore
+echo "git.sh" >> .gitignore
+echo "svn.sh" >> .gitignore
+echo "LICENSE" >> .gitignore
+echo "README.md" >> .gitignore
+echo "return-my-git-plz.sh" >> .gitignore
+git add .gitignore
+echo "- Новый .gitignore создан"
+# }
 
 # Ревизия r0 (пользователь 1) {
 unzip -o commits/commit0 -d src
