@@ -11,3 +11,6 @@ src/
 # Misc
 .DS_Store
 .wakatime-project
+
+# .git backup
+.rotter
