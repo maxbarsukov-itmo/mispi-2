@@ -4,6 +4,10 @@
 !.vscode/launch.json
 !.vscode/tasks.json
 
+# Unzipped revisions
+src/
+!src/.keep
+
 # Misc
 .DS_Store
 .wakatime-project
