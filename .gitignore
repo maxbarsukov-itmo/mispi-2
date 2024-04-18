@@ -5,7 +5,6 @@
 !.vscode/tasks.json
 
 # Unzipped revisions
-src/
 !src/.keep
 
 # Misc
