@@ -55,6 +55,7 @@
 | https://git-scm.com/book/en/v2 | Все что нужно знать о Git |
 | https://github.com/Vsev0l0d/se4-mspi-lab2 | Пример ЛР2 |
 | https://github.com/testpassword/Software-engineering-basics/tree/master/lab2-08.04.20 | Ещё один пример |
+| https://github.com/nesterrovv/software-engineering-basics/tree/master/lab2 | Лаба, получившая 10 баллов у Цопы |
 | https://github.com/EugeneKay/git-jokes | :trollface: Git Jokes |
 
 А еще статьи с материалом, который может спросить *особо коварный практик*:
