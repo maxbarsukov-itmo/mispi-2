@@ -1,0 +1,9 @@
+# IDE files
+.idea/
+.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Misc
+.DS_Store
+.wakatime-project
