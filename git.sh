@@ -18,7 +18,7 @@ echo "- git init"
 
 
 # Настройка .git/config
-echo -e "\n[merge]\n    tool = nano" >> .git/config
+echo -e "\n[merge]\n\ttool = nano" >> .git/config
 
 
 # Настройка пользователей
@@ -39,6 +39,7 @@ echo ".editorconfig" >> .gitignore
 echo ".rotterignore" >> .gitignore
 echo "git.sh" >> .gitignore
 echo "svn.sh" >> .gitignore
+echo ".gitattributes" >> .gitignore
 echo "LICENSE" >> .gitignore
 echo "README.md" >> .gitignore
 echo "return-my-git-plz.sh" >> .gitignore
@@ -128,9 +129,11 @@ git checkout -b branch3
 # Создание файла для ревизии r9 с участием обоих пользователей
 unzip -o commits/commit9 -d src
 git add .
-git rebase branch2
 git commit -m "Revision 9 (r9)"
 echo "- Коммит 9 (red)"
+
+git checkout branch2
+git merge --ff-only branch3
 # }
 
 
@@ -150,7 +153,7 @@ echo "- Коммит 11 (red)"
 
 
 # Ревизии r12 {
-git checkout -b branch3
+git checkout branch3
 
 unzip -o commits/commit12 -d src
 git add .
@@ -170,27 +173,16 @@ git checkout branch1
 
 git merge --no-commit branch3
 
-if [[ $(git status --porcelain | grep "^UU") ]]; then
-  echo "There are merge conflicts. Please resolve them manually."
-  while true; do
-    # Ждем, пока пользователь исправит конфликты вручную
-    read -p "Press 'c' to continue after resolving conflicts, or 'a' to abort: " input
-    case $input in
-      [Cc]* )
-        # Продолжаем merge после исправления конфликтов
-        git add .
-        git commit
-        break;;
-      [Aa]* )
-        # Отменяем merge в случае отмены пользователем
-        git merge --abort
-        exit;;
-      * ) echo "Please answer 'c' to continue or 'a' to abort.";;
-    esac
-  done
-fi
-# }
+
+##
+## ИСПРАВЛЕНИЕ КОНФЛИКТА ВРУЧНУЮ
+##
+
+git add .
 echo "- Слияние r11 и r12"
+
+# Отменяем merge в случае отмены
+# git merge --abort
 
 
 # Ревизии r13-r14 (пользователь 1) {
@@ -204,3 +196,6 @@ git add .
 git commit -m "Revision 14 (r14)"
 echo "- Коммит 14 (red)"
 # }
+
+# Вывод графа
+git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
