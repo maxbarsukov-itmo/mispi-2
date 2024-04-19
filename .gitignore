@@ -7,6 +7,10 @@
 # Unzipped revisions
 !src/.keep
 
+# SVN
+repo
+wc
+
 # Misc
 .DS_Store
 .wakatime-project
