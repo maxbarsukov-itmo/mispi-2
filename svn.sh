@@ -16,7 +16,7 @@ cd wc
 
 
 # Начальная ревизия (пользователь 1) {
-unzip -o ../commits/commit0 -d .
+unzip -o ../commits/commit0.zip -d .
 svn add *
 svn commit -m "Initial commit (r0)" --username=red
 # }
@@ -26,7 +26,7 @@ svn commit -m "Initial commit (r0)" --username=red
 # Удаляем файлы из рабочей директории
 # (если это не сделать, то `... is already under version control`)
 svn rm *
-unzip -o ../commits/commit1 -d .
+unzip -o ../commits/commit1.zip -d .
 svn add *
 svn commit -m "Revision 1 (r1)" --username=red
 # }
@@ -34,7 +34,7 @@ svn commit -m "Revision 1 (r1)" --username=red
 
 # Ревизия r2 (пользователь 1) {
 svn rm *
-unzip -o ../commits/commit2 -d .
+unzip -o ../commits/commit2.zip -d .
 svn add *
 svn commit -m "Revision 2 (r2)" --username=red
 # }
@@ -45,7 +45,7 @@ svn copy $REPO_URL/trunk $REPO_URL/branches/branch2 -m "Creating branch2"
 svn switch $REPO_URL/branches/branch2
 
 svn rm *
-unzip -o ../commits/commit3 -d .
+unzip -o ../commits/commit3.zip -d .
 svn add *
 svn commit -m "Revision 3 (r3)" --username=blue
 # }
@@ -54,7 +54,7 @@ svn commit -m "Revision 3 (r3)" --username=blue
 # Ревизия r4 (пользователь 1) {
 svn switch $REPO_URL/trunk
 svn rm *
-unzip -o ../commits/commit4 -d .
+unzip -o ../commits/commit4.zip -d .
 svn add *
 svn commit -m "Revision 4 (r4)" --username=red
 # }
@@ -64,12 +64,12 @@ svn commit -m "Revision 4 (r4)" --username=red
 svn switch $REPO_URL/branches/branch2
 
 svn rm *
-unzip -o ../commits/commit5 -d .
+unzip -o ../commits/commit5.zip -d .
 svn add *
 svn commit -m "Revision 5 (r5)" --username=blue
 
 svn rm *
-unzip -o ../commits/commit6 -d .
+unzip -o ../commits/commit6.zip -d .
 svn add *
 svn commit -m "Revision 6 (r6)" --username=blue
 # }
@@ -78,7 +78,7 @@ svn commit -m "Revision 6 (r6)" --username=blue
 # Ревизия r7 (пользователь 1) {
 svn switch $REPO_URL/trunk
 svn rm *
-unzip -o ../commits/commit7 -d .
+unzip -o ../commits/commit7.zip -d .
 svn add *
 svn commit -m "Revision 7 (r7)" --username=red
 # }
@@ -88,7 +88,7 @@ svn commit -m "Revision 7 (r7)" --username=red
 svn switch $REPO_URL/branches/branch2
 
 svn rm *
-unzip -o ../commits/commit8 -d .
+unzip -o ../commits/commit8.zip -d .
 svn add *
 svn commit -m "Revision 8 (r8)" --username=blue
 # }
@@ -103,7 +103,7 @@ svn rm * --force
 
 svn merge $REPO_URL/branches/branch2
 
-unzip -o ../commits/commit9 -d .
+unzip -o ../commits/commit9.zip -d .
 svn add *
 svn commit -m "Revision 9 (r9)" --username=red
 # }
@@ -114,12 +114,12 @@ svn update
 svn switch $REPO_URL/trunk
 
 svn rm *
-unzip -o ../commits/commit10 -d .
+unzip -o ../commits/commit10.zip -d .
 svn add *
 svn commit -m "Revision 10 (r10)" --username=red
 
 svn rm *
-unzip -o ../commits/commit11 -d .
+unzip -o ../commits/commit11.zip -d .
 svn add *
 svn commit -m "Revision 11 (r11)" --username=red
 # }
@@ -129,7 +129,7 @@ svn commit -m "Revision 11 (r11)" --username=red
 svn switch $REPO_URL/branches/branch3
 
 svn rm *
-unzip -o ../commits/commit12 -d .
+unzip -o ../commits/commit12.zip -d .
 svn add *
 svn commit -m "Revision 12 (r12)" --username=red
 # }
@@ -140,16 +140,19 @@ svn update
 # Мердж ревизии r11 с r12 {
 svn switch $REPO_URL/trunk
 svn merge $REPO_URL/branches/branch3
+
+nano Lab4.java
+svn resolved Lab4.java
 # }
 
 # Ревизии r13-r14 (пользователь 1) {
 svn rm * --force
-unzip -o ../commits/commit13 -d .
+unzip -o ../commits/commit13.zip -d .
 svn add *
 svn commit -m "Revision 13 (r13)" --username=red
 
 svn rm *
-unzip -o ../commits/commit14 -d .
+unzip -o ../commits/commit14.zip -d .
 svn add *
 svn commit -m "Revision 14 (r14)" --username=red
 # }
